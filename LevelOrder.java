@@ -40,7 +40,7 @@ class CBT2 {
         ArrayList<ArrayList<Integer>> list=new ArrayList<>();
        // ArrayList<Integer> arr=new ArrayList<>();
         list=LevelOrder(head);
-        for(ArrayList arr:list) System.out.println(arr);
+        
     }
     private void display(Node node, String indent) {
         if (node == null) {
@@ -71,7 +71,7 @@ class CBT2 {
       } 
       return list;
       }
-    public ArrayList<ArrayList<Integer>> ZigZagTraversal(Node root) {
+  /*   public ArrayList<ArrayList<Integer>> ZigZagTraversal(Node root) {
       ArrayList<ArrayList<Integer>> list =new ArrayList<>();
       if(root == null) {
         return list;
@@ -102,13 +102,13 @@ class CBT2 {
             dq.offerFirst(temp.right);
           }
         }
-
       }
       rev=!rev;
       list.add(curr);
       }
       return list;
-    }  
+    } 
+    */ 
     }
 
 
