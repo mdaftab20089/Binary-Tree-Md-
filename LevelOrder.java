@@ -71,6 +71,44 @@ class CBT2 {
       } 
       return list;
       }
+    public ArrayList<ArrayList<Integer>> ZigZagTraversal(Node root) {
+      ArrayList<ArrayList<Integer>> list =new ArrayList<>();
+      if(root == null) {
+        return list;
+      }
+      Deque<Node> dq=new LinkedList<>();
+      dq.offer(root);
+      boolean rev=false;
+      while(!dq.isEmpty()) {
+      int levelSize=dq.size();
+      ArrayList<Integer> curr=new ArrayList<>();
+      for(int i=0; i<levelSize; i++) {
+        if(!rev) {
+          Node temp=dq.pollFirst();
+          curr.add(temp.data);
+          if(temp.left!=null) {
+            dq.offerLast(temp.left);
+          }
+          if(temp.right!=null) {
+            dq.offerLast(temp.right);
+          }
+        } else {
+          Node temp=dq.pollLast();
+          curr.add(temp.data);
+          if(temp.right!=null) {
+            dq.offerFirst(temp.right);
+          }
+          if(temp.left!=null) {
+            dq.offerFirst(temp.right);
+          }
+        }
+
+      }
+      rev=!rev;
+      list.add(curr);
+      }
+      return list;
+    }  
     }
 
 
