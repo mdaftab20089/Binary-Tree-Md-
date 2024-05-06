@@ -79,7 +79,27 @@ class CBT3 {
 
     return list;
    }
-   }
+   public boolean isSymmetric(Node root) {
+    if(root == null ) {
+        return true;
+    }
+    return helper(root,root.left,root.right);
+}
+public boolean helper(Node root,Node x, Node y) {
+    if(root==null) return true;
+    if(x==null && y==null) {
+        return true;
+    }
+     if(x==null || y==null) {
+        return false;
+    }
+    if(x.data!=y.data) {
+        return false;
+    }
+    else
+    return (helper(root,x.left,y.right) && helper(root,x.right,y.left));
+}
+}
 
 
 
