@@ -113,6 +113,31 @@ public boolean helper(Node root,Node x, Node y) {
         diameter=Math.max(diameter,dia);
         return Math.max(leftheight,righthight)+1;
     }
+    public boolean MirrorImages(Node root) {
+        if(root==null) return false;
+        return Image(root.left,root.right);
+    }
+    boolean Image(Node x,Node y) {
+        if(x==null && y==null) return true;
+        if(x==null || y==null) return false;
+        if(x.data!=y.data) {
+            return false;
+        }
+        else return(Image(x.left, y.right) && Image(x.right, y.left));
+
+    }
+    public Node InvertBinaryTree(Node root) {
+        if(root==null) return null;
+        Node temp;
+        if(root!=null) {
+            InvertBinaryTree(root.left);
+            InvertBinaryTree(root.right);
+            temp=root.left;
+            root.left=root.right;
+            root.right=temp;
+        }
+        return root;
+    }
 
 }
 
