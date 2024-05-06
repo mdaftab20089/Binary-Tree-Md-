@@ -99,6 +99,21 @@ public boolean helper(Node root,Node x, Node y) {
     else
     return (helper(root,x.left,y.right) && helper(root,x.right,y.left));
 }
+    public int diameter=0;
+    public int Diameter(Node root) {
+        if(root == null) return 0;
+        height(root);
+        return diameter-1;
+    }
+    public int height(Node root) {
+        if(root==null) return 0;
+        int leftheight=height(root.left);
+        int righthight=height(root.right);
+        int dia=leftheight+righthight+1;
+        diameter=Math.max(diameter,dia);
+        return Math.max(leftheight,righthight)+1;
+    }
+
 }
 
 
