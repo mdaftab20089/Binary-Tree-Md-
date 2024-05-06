@@ -62,14 +62,6 @@ class CBT {
         display(node.left, indent + "\t");
         display(node.right, indent + "\t");
       }
-      public void takingElement() {
-             takingElement(head);
-      }
-      public void takingElement(Node node) {
-        int[] arr=new int[1000];
-        
-      }
-
     }
 
 
