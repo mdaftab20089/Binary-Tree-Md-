@@ -39,7 +39,9 @@ class CBT2 {
       //  display(this.head," ");
         ArrayList<ArrayList<Integer>> list=new ArrayList<>();
        // ArrayList<Integer> arr=new ArrayList<>();
-        list=LevelOrder(head);
+       // list=LevelOrder(head);
+       list = Paths(head);
+       for(ArrayList x:list) System.out.println(x);
 
     }
     private void display(Node node, String indent) {
@@ -71,7 +73,26 @@ class CBT2 {
       } 
       return list;
       }
+      public ArrayList<ArrayList<Integer>> Paths(Node root) {
+        // code here
+        ArrayList<ArrayList<Integer>> list=new ArrayList<>();
+        ArrayList<Integer> l=new ArrayList<>();
+        PrintPaths(root,list,l);
+        return list;
+      }
+    public void  PrintPaths(Node root,ArrayList<ArrayList<Integer>> list,ArrayList<Integer> curr) {
+             if(root==null) return ;
+             curr.add(root.data);
+             if(root.left==null && root.right==null)  {
+            list.add(new ArrayList<>(curr));
+            curr.remove(curr.size()-1);
+            return;
+            }
+                 PrintPaths(root.left,list,curr);
+                 PrintPaths(root.right,list,curr);
+                 curr.remove(curr.size()-1);     
     }
+  }
 
 
 class LevelOrder {
@@ -80,4 +101,5 @@ class LevelOrder {
         b.populate();
         b.display();
     }
-}
+  }
+
