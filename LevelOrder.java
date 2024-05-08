@@ -41,7 +41,7 @@ class CBT2 {
        // ArrayList<Integer> arr=new ArrayList<>();
        // list=LevelOrder(head);
        list = Paths(head);
-       for(ArrayList x:list) System.out.println(x);
+       for(ArrayList<Integer> x:list) System.out.println(x);
 
     }
     private void display(Node node, String indent) {
@@ -92,7 +92,23 @@ class CBT2 {
                  PrintPaths(root.right,list,curr);
                  curr.remove(curr.size()-1);     
     }
+    public void flatten(Node root) {
+      if(root==null) return ;
+      Node curr=root;
+      while(curr!=null) {
+          if(curr.left!=null) {
+              Node temp=curr.left;
+              while(temp.right!=null) {
+                  temp=temp.right;
+              }
+              temp.right=curr.right;
+              curr.right=curr.left;
+              curr.left=null;
+          }
+          curr=curr.right;
+      }
   }
+}
 
 
 class LevelOrder {
